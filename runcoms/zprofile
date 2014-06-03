@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='gvim'
 export PAGER='less'
 
 #
@@ -75,3 +75,22 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+function au(){
+    AURA="$(aura "$@")"
+
+    if echo "$AURA" | grep -q '^aura >>= .*You have to use `.*sudo.*` for that.*$'
+    then
+        sudo aura "$@"
+    else
+        echo "$AURA"
+    fi
+}
+
+function audl(){
+    for i in "$@"
+    do
+        mkdir -p $HOME/build/PKGBUILDS/$i
+        cd $HOME/build/PKGBUILDS/$i
+    	aura -Ap $i > PKGBUILD
+    done
+}
