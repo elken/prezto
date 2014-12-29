@@ -20,9 +20,8 @@ fi
 
 source ~/.zprofile
 source $HOME/.aliases
-export PATH=$PATH:/home/ed/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:$HOME/bin:$HOME/go/bin:$HOME/.cabal/bin:$HOME/.cask/bin
+export PATH=/usr/lib/colorgcc/bin:$PATH:/home/ed/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:$HOME/bin:$HOME/go/bin:$HOME/.cabal/bin
 export PANEL_FIFO="/tmp/panel-fifo"
-export DWMFIFO="/tmp/dwm.fifo"
 export GOPATH="$HOME/go"
 
 setopt no_hist_verify

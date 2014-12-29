@@ -199,5 +199,8 @@ function psu {
 function psf {
   ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' --forest "${(@)argv[2,-1]}"
 }
+<<<<<<< HEAD
 =======
 >>>>>>> d43bcb972091878efa3692100e8479fb887332f5
+=======
+>>>>>>> b592f7c83349e09c11e9ea37771986b95bb21715
