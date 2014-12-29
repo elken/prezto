@@ -22,7 +22,7 @@ alias ack='nocorrect ack'
 alias cd='nocorrect cd'
 alias cp='nocorrect cp'
 alias ebuild='nocorrect ebuild'
-alias gcc='nocorrect gcc'
+alias gcc='nocorrect /usr/lib/colorgcc/bin/gcc'
 alias gist='nocorrect gist'
 alias grep='nocorrect grep'
 alias heroku='nocorrect heroku'
@@ -34,6 +34,7 @@ alias mysql='nocorrect mysql'
 alias rm='nocorrect rm'
 
 # Disable globbing.
+alias bower='noglob bower'
 alias fc='noglob fc'
 alias find='noglob find'
 alias ftp='noglob ftp'
@@ -48,7 +49,7 @@ alias sftp='noglob sftp'
 alias _='sudo'
 alias b='${(z)BROWSER}'
 alias cp="${aliases[cp]:-cp} -i"
-alias e='${(z)VISUAL:-${(z)EDITOR}}'
+alias e='${(z)EDITOR}'
 alias ln="${aliases[ln]:-ln} -i"
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
 alias mv="${aliases[mv]:-mv} -i"
@@ -65,9 +66,9 @@ if is-callable 'dircolors'; then
 
   if zstyle -t ':prezto:module:utility:ls' color; then
     if [[ -s "$HOME/.dir_colors" ]]; then
-      eval "$(dircolors "$HOME/.dir_colors")"
+      eval "$(dircolors --sh "$HOME/.dir_colors")"
     else
-      eval "$(dircolors)"
+      eval "$(dircolors --sh)"
     fi
 
     alias ls="$aliases[ls] --color=auto"
@@ -100,6 +101,14 @@ alias lt='ll -tr'        # Lists sorted by date, most recent last.
 alias lc='lt -c'         # Lists sorted by date, most recent last, shows change time.
 alias lu='lt -u'         # Lists sorted by date, most recent last, shows access time.
 alias sl='ls'            # I often screw this up.
+
+# Grep
+if zstyle -t ':prezto:module:utility:grep' color; then
+  export GREP_COLOR='37;45'           # BSD.
+  export GREP_COLORS="mt=$GREP_COLOR" # GNU.
+
+  alias grep="$aliases[grep] --color=auto"
+fi
 
 # Mac OS X Everywhere
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -184,4 +193,11 @@ function find-exec {
 function psu {
   ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
+<<<<<<< HEAD
 
+# Displays user owned processes status in a nice tree style.
+function psf {
+  ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' --forest "${(@)argv[2,-1]}"
+}
+=======
+>>>>>>> d43bcb972091878efa3692100e8479fb887332f5
