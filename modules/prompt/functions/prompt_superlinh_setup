@@ -19,6 +19,24 @@ function prompt_sorin_precmd {
   if (( $+functions[git-info] )); then
     git-info
   fi
+<<<<<<< HEAD
+=======
+
+  # Get Ruby info
+  if (( $+functions[ruby-info] )); then
+    ruby-info
+  fi
+
+  # Get Virtual env info
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
+
+  # Get Node info
+  if (( $+functions[node-info] )); then
+    node-info
+  fi
+>>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
 }
 
 function prompt_sorin_setup {
@@ -34,16 +52,27 @@ function prompt_sorin_setup {
 
   # Set editor-info parameters.
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+<<<<<<< HEAD
   zstyle ':prezto:module:editor:info:keymap:primary' format '%F{blue}λ%f'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
   zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{blue}λ%f %F{yellow}⌨%f'
+=======
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{056}❯%F{062}❯%F{068}❯%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{068}❮%F{062}❮%F{056}❮%f%b'
+>>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
   zstyle ':prezto:module:git:info:action' format ':%%B%F{yellow}%s%f%%b'
   zstyle ':prezto:module:git:info:added' format ' %%B%F{green}✚%f%%b'
+<<<<<<< HEAD
   zstyle ':prezto:module:git:info:ahead' format ' %%B%F{yellow}⬆%f%%b'
   zstyle ':prezto:module:git:info:behind' format ' %%B%F{yellow}⬇%f%%b'
+=======
+  zstyle ':prezto:module:git:info:ahead' format ' %%B%F{green}↑%f%%b'
+  zstyle ':prezto:module:git:info:behind' format ' %%B%F{red}↓%f%%b'
+>>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
   zstyle ':prezto:module:git:info:branch' format ':%F{green}%b%f'
   zstyle ':prezto:module:git:info:commit' format ':%F{green}%.7c%f'
   zstyle ':prezto:module:git:info:deleted' format ' %%B%F{red}✖%f%%b'
@@ -52,16 +81,27 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:renamed' format ' %%B%F{magenta}➜%f%%b'
   zstyle ':prezto:module:git:info:stashed' format ' %%B%F{cyan}✭%f%%b'
   zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{yellow}═%f%%b'
+<<<<<<< HEAD
   zstyle ':prezto:module:git:info:untracked' format ' %%B%F{white}◼%f%%b'
+=======
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{red}✗%f%%b'
+>>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
   zstyle ':prezto:module:git:info:keys' format \
     'prompt' '(%F{blue}git%f$(coalesce "%b" "%p" "%c")%s)' \
     'rprompt' '%A%B%S%a%d%m%r%U%u'
 
   # Define prompts.
   PROMPT='
+<<<<<<< HEAD
 %F{cyan}%~%f %(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
   RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]} ${git_info:+${(e)git_info[prompt]}}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+=======
+%F{033}%~%f 
+%F{6d9eac}λ%f '
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]} ${git_info:+${(e)git_info[prompt]}}'
+>>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
 }
 
 prompt_sorin_setup "$@"

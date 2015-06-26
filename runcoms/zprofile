@@ -18,7 +18,11 @@ fi
 #
 
 export EDITOR='vim'
+<<<<<<< HEAD
 export VISUAL='vim'
+=======
+export VISUAL='gvim'
+>>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
 export PAGER='less'
 
 #
@@ -92,6 +96,5 @@ function audl(){
     do
         mkdir -p $HOME/build/PKGBUILDs/
         curl -s https://aur.archlinux.org/packages/$(echo $i | cut -c1,2)/$i/$i.tar.gz | tar zxvf - -C $HOME/build/PKGBUILDs/
-        cd $HOME/build/PKGBUILDs
     done
 }

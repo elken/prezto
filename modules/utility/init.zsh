@@ -22,7 +22,7 @@ alias ack='nocorrect ack'
 alias cd='nocorrect cd'
 alias cp='nocorrect cp'
 alias ebuild='nocorrect ebuild'
-alias gcc='nocorrect gcc'
+alias gcc='nocorrect /usr/lib/colorgcc/bin/gcc'
 alias gist='nocorrect gist'
 alias grep='nocorrect grep'
 alias heroku='nocorrect heroku'
@@ -49,7 +49,7 @@ alias sftp='noglob sftp'
 alias _='sudo'
 alias b='${(z)BROWSER}'
 alias cp="${aliases[cp]:-cp} -i"
-alias e='${(z)VISUAL:-${(z)EDITOR}}'
+alias e='${(z)EDITOR}'
 alias ln="${aliases[ln]:-ln} -i"
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
 alias mv="${aliases[mv]:-mv} -i"
@@ -198,3 +198,14 @@ function find-exec {
 function psu {
   ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
+<<<<<<< HEAD
+
+# Displays user owned processes status in a nice tree style.
+function psf {
+  ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' --forest "${(@)argv[2,-1]}"
+}
+<<<<<<< HEAD
+=======
+>>>>>>> d43bcb972091878efa3692100e8479fb887332f5
+=======
+>>>>>>> b592f7c83349e09c11e9ea37771986b95bb21715
