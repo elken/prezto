@@ -41,6 +41,10 @@ zstyle ':prezto:load' pmodule \
   'pacman'
 
 #
+# Autosuggestions
+#
+
+#
 # Editor
 #
 
@@ -92,6 +96,13 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'superlinh'
+
+#
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
 # Screen
@@ -152,3 +163,33 @@ zstyle ':prezto:module:prompt' theme 'superlinh'
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
+#
+# Zaw
+#
+
+# Set the error color.
+# zstyle ':prezto:module:zaw:color' error 'bg=red,fg=white'
+
+# Set the marked item color.
+# zstyle ':prezto:module:zaw:color' marked 'bg=blue,fg=white'
+
+# Set the matched item color.
+# zstyle ':prezto:module:zaw:color' matched 'bg=magenta,fg=white'
+
+# Set the selected item color.
+# zstyle ':prezto:module:zaw:color' selected 'standout'
+
+# Set the list title color.
+# zstyle ':prezto:module:zaw:color' title 'fg=yellow'
+
+# Set the maximum number of items.
+# zstyle ':prezto:module:zaw' max-lines 15
+
+# Set list cursor rotation.
+# zstyle ':filter-select' rotate-list 'yes'
+
+# Enable extended search operators.
+# zstyle ':prezto:module:zaw' extended-search 'yes'
+
+# Integrate with iTerm2.
+# zstyle ':prezto:module:tmux:iterm' integrate 'yes'

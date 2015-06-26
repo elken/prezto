@@ -18,6 +18,7 @@ fi
 
 unset GREP_OPTIONS
 
+<<<<<<< HEAD
 # Customize to your needs...
 source ~/.zprofile
 source $HOME/.aliases
@@ -29,14 +30,6 @@ export CHROOT=$HOME/chroot
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
 source /usr/share/doc/pkgfile/command-not-found.zsh
-
-# Fix delete in st
-if [ "${TERM}" = st-256color ]; then
-    function zle-line-init () { echoti smkx  }
-    function zle-line-finish () { echoti rmkx  }
-    zle -N zle-line-init
-    zle -N zle-line-finish
-fi
 
 eval "$(fasd --init zsh-hook zsh-ccomp auto)"
 
@@ -68,3 +61,31 @@ if [ -f "${SSH_ENV}" ]; then
 else     
      start_agent;
 fi
+
+vim_ins_mode="INSERT"
+vim_cmd_mode="NORMAL"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+    __promptline
+      zle reset-prompt
+
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+  vim_mode=$vim_ins_mode
+
+}
+zle -N zle-line-finish
+
+function TRAPINT() {
+  vim_mode=$vim_ins_mode
+    return $(( 128 + $1  ))
+
+}
+
+[ -e $HOME/.zsh/zprompt ] && . ~/.zsh/zprompt
+[ -e $HOME/.zsh/fzf.zsh ] && . ~/.zsh/fzf.zsh
+[ -e $HOME/.zsh/notifyosd.zsh ] && . $HOME/.zsh/notifyosd.zsh
