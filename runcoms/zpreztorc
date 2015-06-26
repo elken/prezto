@@ -153,7 +153,6 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
-<<<<<<< HEAD
 #
 # Zaw
 #
@@ -182,7 +181,5 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Enable extended search operators.
 # zstyle ':prezto:module:zaw' extended-search 'yes'
 
-=======
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
->>>>>>> master
