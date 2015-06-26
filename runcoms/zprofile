@@ -13,12 +13,16 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
+if [[ "$TERM" == linux ]]; then
+    $HOME/bin/fbterm-bg $HOME/Pictures/1366293872__.jpg
+    export TERM='fbterm'
+fi
 #
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='nvim'
+export VISUAL='gvim'
 export PAGER='less'
 
 #
@@ -75,3 +79,20 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+function au(){
+    AURA="$(aura "$@")"
+
+    if echo "$AURA" | grep -q '^aura >>= .*You have to use `.*sudo.*` for that.*$'
+    then
+        sudo aura "$@"
+    else
+        echo "$AURA"
+    fi
+}
+
+function audl(){
+    for i in "$@"
+    do
+        curl -s https://aur.archlinux.org/packages/$(echo $i | cut -c1,2)/$i/$i.tar.gz | tar zxvf -
+    done
+}
