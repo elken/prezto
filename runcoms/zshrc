@@ -18,17 +18,22 @@ fi
 
 unset GREP_OPTIONS
 
+<<<<<<< HEAD
+# Customize to your needs...
 source ~/.zprofile
 source $HOME/.aliases
-export PATH=/usr/lib/colorgcc/bin:$PATH:/home/ed/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:$HOME/bin:$HOME/go/bin:$HOME/.cabal/bin
+export PATH=/usr/lib/colorgcc/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:$HOME/bin:$HOME/.opam/system/bin:$HOME/.local/bin:$HOME/.cask/bin:/usr/local/heroku/bin:/usr/bin/core_perl/:$HOME/.gem/ruby/2.2.0/bin
 export PANEL_FIFO="/tmp/panel-fifo"
 export GOPATH="$HOME/go"
+export CHROOT=$HOME/chroot
 
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
-[ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-wcomp posix-alias posix-hook)"
+eval "$(fasd --init zsh-hook zsh-ccomp auto)"
+
+
 eval `dircolors ~/.dircolors`
 
 setopt no_hist_verify

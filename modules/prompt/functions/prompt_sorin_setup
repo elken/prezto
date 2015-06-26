@@ -107,17 +107,10 @@ function prompt_sorin_setup {
   add-zsh-hook precmd prompt_sorin_precmd
 
   # Set editor-info parameters.
-<<<<<<< HEAD
   zstyle ':prezto:module:editor:info:completing' format '%B%F{7}...%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary' format ' %B%F{1}❯%F{3}❯%F{2}❯%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{3}♺%f'
   zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{2}❮%F{3}❮%F{1}❮%f%b'
-=======
-  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format ' %B%F{202}❯%F{6d9eac}❯%F{262729}❯%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{262729}❮%F{6d9eac}❮%F{e04614}❮%f%b'
->>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'

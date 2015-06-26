@@ -13,16 +13,16 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
+if [[ "$TERM" == linux ]]; then
+    $HOME/bin/fbterm-bg $HOME/Pictures/1366293872__.jpg
+    export TERM='fbterm'
+fi
 #
 # Editors
 #
 
-export EDITOR='vim'
-<<<<<<< HEAD
-export VISUAL='vim'
-=======
+export EDITOR='nvim'
 export VISUAL='gvim'
->>>>>>> 98154b63c83c63ba3ae52e0fd3b4ebe2e95e99c9
 export PAGER='less'
 
 #
@@ -94,7 +94,6 @@ function au(){
 function audl(){
     for i in "$@"
     do
-        mkdir -p $HOME/build/PKGBUILDs/
-        curl -s https://aur.archlinux.org/packages/$(echo $i | cut -c1,2)/$i/$i.tar.gz | tar zxvf - -C $HOME/build/PKGBUILDs/
+        curl -s https://aur.archlinux.org/packages/$(echo $i | cut -c1,2)/$i/$i.tar.gz | tar zxvf -
     done
 }
