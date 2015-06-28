@@ -59,8 +59,7 @@ function prompt_sorin_setup {
 
   # Define prompts.
   PROMPT='
-%F{033}%~%f 
-%F{6d9eac}λ%f '
+%F{033}%~%f %F{6d9eac}λ%f '
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
   RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]} ${git_info:+${(e)git_info[prompt]}}'
 }
