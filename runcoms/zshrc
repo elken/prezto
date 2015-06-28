@@ -87,5 +87,6 @@ function TRAPINT() {
 }
 
 [ -e $HOME/.zsh/fzf.zsh ] && . ~/.zsh/fzf.zsh
+[ -e $HOME/.zsh/k.sh ] && . ~/.zsh/k.sh
 [ -e $HOME/.zsh/zprompt ] && . ~/.zsh/zprompt
 [ -e $HOME/.zsh/notifyosd.zsh ] && . $HOME/.zsh/notifyosd.zsh
