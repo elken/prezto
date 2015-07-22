@@ -85,4 +85,5 @@ function TRAPINT() {
 
 }
 
+[ -e $HOME/.zsh/k.sh ] && . ~/.zsh/k.sh
 [ -e $HOME/.zsh/notifyosd.zsh ] && . $HOME/.zsh/notifyosd.zsh
