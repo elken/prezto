@@ -12,8 +12,8 @@ stty stop undef
 stty start undef
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/prezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/prezto/init.zsh"
 fi
 
 unset GREP_OPTIONS
@@ -68,7 +68,6 @@ vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
   vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-    __promptline
       zle reset-prompt
 
 }
@@ -86,6 +85,4 @@ function TRAPINT() {
 
 }
 
-[ -e $HOME/.zsh/fzf.zsh ] && . ~/.zsh/fzf.zsh
-[ -e $HOME/.zsh/zprompt ] && . ~/.zsh/zprompt
 [ -e $HOME/.zsh/notifyosd.zsh ] && . $HOME/.zsh/notifyosd.zsh
