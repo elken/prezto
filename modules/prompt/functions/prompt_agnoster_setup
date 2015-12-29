@@ -101,6 +101,14 @@ prompt_git() {
   fi
 }
 
+# Virtualenv: Current python virtualenv
+prompt_virtualenv() {
+  if [[ -n $VIRTUAL_ENV ]]; then
+    prompt_segment cyan $PRIMARY_FG " $(basename $VIRTUAL_ENV) "
+  fi
+}
+
+# SSH: Show hostname if ssh'd in
 prompt_ssh() {
   if [[ -n $SSH_CLIENT ]]; then
     prompt_segment red $PRIMARY_FG " $(echo $HOST) "
@@ -131,6 +139,7 @@ prompt_agnoster_main() {
   RETVAL=$?
   CURRENT_BG='NONE'
   prompt_ssh
+  prompt_virtualenv
   prompt_status
   prompt_context
   prompt_dir
