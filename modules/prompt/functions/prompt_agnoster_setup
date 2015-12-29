@@ -101,6 +101,12 @@ prompt_git() {
   fi
 }
 
+prompt_ssh() {
+  if [[ -n $SSH_CLIENT ]]; then
+    prompt_segment red $PRIMARY_FG " $(echo $HOST) "
+  fi
+}
+
 # Dir: current working directory
 prompt_dir() {
   prompt_segment blue $PRIMARY_FG ' %~ '
@@ -124,6 +130,7 @@ prompt_status() {
 prompt_agnoster_main() {
   RETVAL=$?
   CURRENT_BG='NONE'
+  prompt_ssh
   prompt_status
   prompt_context
   prompt_dir
