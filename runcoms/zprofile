@@ -97,3 +97,9 @@ function audl(){
         curl -s https://aur.archlinux.org/packages/$(echo $i | cut -c1,2)/$i/$i.tar.gz | tar zxvf -
     done
 }
+
+function cm()
+{
+    set -o pipefail
+    $@ 2>&1  | colout -t cmake | colout -t g++
+}

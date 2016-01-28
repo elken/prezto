@@ -29,7 +29,7 @@ export PANEL_FIFO="/tmp/panel-fifo"
 export GOPATH="$HOME/go"
 export CHROOT="$HOME/chroot"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
-export DEFAULT_VPN="UK"
+export DEFAULT_VPN="DK"
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
 setopt no_hist_verify
