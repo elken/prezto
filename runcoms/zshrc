@@ -24,7 +24,6 @@ promptinit
 prompt agnoster
 source ~/.zprofile
 source $HOME/.aliases
-export PATH=/usr/lib/colorgcc/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:$HOME/bin:$HOME/.opam/system/bin:$HOME/.local/bin:$HOME/.cask/bin:/usr/local/heroku/bin:/usr/bin/core_perl/:$HOME/.gem/ruby/2.2.0/bin
 export PANEL_FIFO="/tmp/panel-fifo"
 export GOPATH="$HOME/go"
 export CHROOT="$HOME/chroot"
@@ -34,7 +33,6 @@ export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
-source /usr/share/doc/pkgfile/command-not-found.zsh
 set ZLE_RPROPT_INDENT=1
 
 eval "$(fasd --init zsh-hook zsh-ccomp auto)"
