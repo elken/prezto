@@ -4,6 +4,7 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+. ~/.profile
 
 #
 # Browser
@@ -21,8 +22,8 @@ fi
 # Editors
 #
 
-export EDITOR='nvim'
-export VISUAL='gvim'
+export EDITOR='vim'
+export VISUAL='open -a Emacs'
 export PAGER='less'
 
 #
@@ -47,9 +48,16 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $(yarn global bin)
+  $HOME/.composer/vendor/bin
   /usr/local/{bin,sbin}
   /usr/bin
+  /usr/local/mysql/bin
   $HOME/bin
+  $HOME/.dnx/runtimes/dnx-mono.1.0.0-rc2-20221/bin
+  $HOME/gcc-arm-none-eabi/bin
+  /usr/local/opt/llvm/bin
+  $HOME/.rvm/bin
   $path
 )
 
@@ -104,4 +112,26 @@ function cm()
 {
     set -o pipefail
     $@ 2>&1  | colout -t cmake | colout -t g++
+}
+
+# Need to make this use scat
+
+function json() 
+{
+    local COMMAND=""
+    local TMP=$(mktemp)
+    if [ -t 0 ]; then
+        if [ $# -gt 0 ]; then
+            COMMAND="$@"
+        fi
+    else
+        COMMAND=$(/bin/cat)
+    fi
+
+    echo ${COMMAND} | python -mjson.tool | colout -t json
+}
+
+function code() 
+{
+    VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
 }

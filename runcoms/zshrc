@@ -37,9 +37,6 @@ set ZLE_RPROPT_INDENT=1
 
 eval "$(fasd --init zsh-hook zsh-ccomp auto)"
 
-
-eval `dircolors ~/.dircolors`
-
 setopt no_hist_verify
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -50,8 +47,8 @@ function start_agent {
      echo succeeded
      chmod 600 "${SSH_ENV}"
      . "${SSH_ENV}" > /dev/null
-     /usr/bin/ssh-add ~/.ssh/git
-     /usr/bin/ssh-add ~/.ssh/id-rsa;
+     /usr/bin/ssh-add -K ~/.ssh/git
+     /usr/bin/ssh-add -K ~/.ssh/id-rsa;
 }
 
 # Source SSH settings, if applicable
@@ -62,7 +59,7 @@ if [ -f "${SSH_ENV}" ]; then
      ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
          start_agent;
      }
-else     
+else
      start_agent;
 fi
 
@@ -89,6 +86,27 @@ function TRAPINT() {
 
 }
 
-for i in agnoster.zsh k.sh notifyosd.zsh; do
+for i in agnoster.zsh k.sh ; do
     [ -e $HOME/.zsh/$i ] && . $HOME/.zsh/$i
 done
+
+[ -e /bin/launchctl ] && /bin/launchctl setenv LIBRARY_PATH /usr/local/lib && /bin/launchctl setenv CPATH /usr/local/include && export LIBRARY_PATH=/usr/local/lib && export CPATH=/usr/local/include
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+[ -e ~/.cargo/env ] && . ~/.cargo/env
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/build
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+source /usr/local/bin/virtualenvwrapper.sh
+eval "$(pyenv init -)"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+PATH="/Users/ellis/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/ellis/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/ellis/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/ellis/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/ellis/perl5"; export PERL_MM_OPT;
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
