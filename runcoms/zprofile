@@ -23,7 +23,7 @@ fi
 #
 
 export EDITOR='vim'
-export VISUAL='open -a Emacs'
+export VISUAL='atom'
 export PAGER='less'
 
 #
@@ -48,16 +48,15 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.rvm/gems/ruby-2.4.1/bin
   $(yarn global bin)
   $HOME/.composer/vendor/bin
   /usr/local/{bin,sbin}
   /usr/bin
   /usr/local/mysql/bin
   $HOME/bin
-  $HOME/.dnx/runtimes/dnx-mono.1.0.0-rc2-20221/bin
   $HOME/gcc-arm-none-eabi/bin
   /usr/local/opt/llvm/bin
-  $HOME/.rvm/bin
   $path
 )
 
@@ -90,24 +89,6 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-function au(){
-    AURA="$(aura "$@")"
-
-    if echo "$AURA" | grep -q '^aura >>= .*You have to use `.*sudo.*` for that.*$'
-    then
-        sudo aura "$@"
-    else
-        echo "$AURA"
-    fi
-}
-
-function audl(){
-    for i in "$@"
-    do
-        curl -s https://aur.archlinux.org/packages/$(echo $i | cut -c1,2)/$i/$i.tar.gz | tar zxvf -
-    done
-}
-
 function cm()
 {
     set -o pipefail
@@ -131,7 +112,4 @@ function json()
     echo ${COMMAND} | python -mjson.tool | colout -t json
 }
 
-function code() 
-{
-    VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
-}
+export PATH="$HOME/.cargo/bin:$PATH"

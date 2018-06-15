@@ -38,7 +38,9 @@ zstyle ':prezto:load' pmodule \
   'command-not-found' \
   'syntax-highlighting' \
   'archive' \
-  'pacman'
+  'pacman' \
+  'rails' \
+  'ruby'
 
 #
 # Autosuggestions

@@ -21,7 +21,7 @@ unset GREP_OPTIONS
 # Customize to your needs...
 autoload -Uz promptinit
 promptinit
-prompt agnoster
+prompt pure
 source ~/.zprofile
 source $HOME/.aliases
 export PANEL_FIFO="/tmp/panel-fifo"
@@ -30,6 +30,7 @@ export CHROOT="$HOME/chroot"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export DEFAULT_VPN="DK"
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
@@ -47,8 +48,7 @@ function start_agent {
      echo succeeded
      chmod 600 "${SSH_ENV}"
      . "${SSH_ENV}" > /dev/null
-     /usr/bin/ssh-add -K ~/.ssh/git
-     /usr/bin/ssh-add -K ~/.ssh/id-rsa;
+     /usr/bin/ssh-add -K ~/.ssh/id_rsa;
 }
 
 # Source SSH settings, if applicable
@@ -99,7 +99,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/build
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-source /usr/local/bin/virtualenvwrapper.sh
 eval "$(pyenv init -)"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
@@ -110,3 +109,9 @@ PERL_MB_OPT="--install_base \"/Users/ellis/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/ellis/perl5"; export PERL_MM_OPT;
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+unset l
+function l()
+{
+    ruby ~/bin/colorls/colorls.rb $*;
+}
