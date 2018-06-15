@@ -18,12 +18,13 @@ if [[ "$TERM" == linux ]]; then
     $HOME/bin/fbterm-bg $HOME/Pictures/1366293872__.jpg
     export TERM='fbterm'
 fi
+
 #
 # Editors
 #
 
 export EDITOR='vim'
-export VISUAL='atom'
+export VISUAL='code'
 export PAGER='less'
 
 #
@@ -113,3 +114,14 @@ function json()
 }
 
 export PATH="$HOME/.cargo/bin:$PATH"
+function code() 
+{
+    VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
+}
+
+function clone()
+{
+    for repo in "$@"; do
+        git clone "${repo}"
+    done
+}
