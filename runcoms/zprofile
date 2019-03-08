@@ -21,8 +21,8 @@ fi
 # Editors
 #
 
-export EDITOR='nvim'
-export VISUAL='gvim'
+export EDITOR='emacsclient -nw'
+export VISUAL='emacsclient -c'
 export PAGER='less'
 
 #
@@ -47,9 +47,12 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.emacs.d/bin
+  $HOME/.cargo/bin
   /usr/local/{bin,sbin}
   /usr/bin
   $HOME/bin
+  $HOME/.local/bin
   $path
 )
 

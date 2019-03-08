@@ -21,7 +21,7 @@ unset GREP_OPTIONS
 # Customize to your needs...
 autoload -Uz promptinit
 promptinit
-prompt agnoster
+prompt pure
 source ~/.zprofile
 source $HOME/.aliases
 export PANEL_FIFO="/tmp/panel-fifo"
@@ -30,6 +30,7 @@ export CHROOT="$HOME/chroot"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export DEFAULT_VPN="DK"
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
+export RUST_SRC_PATH="/home/elken/b/rust/src"
 
 setopt no_hist_verify
 setopt HIST_IGNORE_DUPS
@@ -50,8 +51,7 @@ function start_agent {
      echo succeeded
      chmod 600 "${SSH_ENV}"
      . "${SSH_ENV}" > /dev/null
-     /usr/bin/ssh-add ~/.ssh/git
-     /usr/bin/ssh-add ~/.ssh/id-rsa;
+     /usr/bin/ssh-add ~/.ssh/id_rsa;
 }
 
 # Source SSH settings, if applicable
