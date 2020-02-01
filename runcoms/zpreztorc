@@ -16,7 +16,7 @@
 zstyle ':prezto:*:*' color 'yes'
 
 # Add additional directories to load prezto modules from
-zstyle ':prezto:load' pmodule-dirs $HOME/.zsh/prezto/contrib
+# zstyle ':prezto:load' pmodule-dirs $HOME/.zsh/prezto/contrib
 
 # Allow module overrides when pmodule-dirs causes module name collisions
 # zstyle ':prezto:load' pmodule-allow-overrides 'yes'
@@ -30,6 +30,7 @@ zstyle ':prezto:load' pmodule-dirs $HOME/.zsh/prezto/contrib
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
+  'autosuggestions' \
   'environment' \
   'terminal' \
   'editor' \
