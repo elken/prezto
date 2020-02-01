@@ -19,9 +19,9 @@ fi
 unset GREP_OPTIONS
 
 # Customize to your needs...
-# autoload -Uz promptinit
-# promptinit
-# prompt spaceship
+autoload -Uz promptinit
+promptinit
+prompt spaceship
 source ~/.zprofile
 source $HOME/.aliases
 export PANEL_FIFO="/tmp/panel-fifo"
