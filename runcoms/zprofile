@@ -21,8 +21,8 @@ fi
 # Editors
 #
 
-export EDITOR='emacsclient -nw'
-export VISUAL='emacsclient -c'
+export EDITOR='nvim'
+export VISUAL='code'
 export PAGER='less'
 
 #
@@ -53,6 +53,7 @@ path=(
   /usr/bin
   $HOME/bin
   $HOME/.local/bin
+  $HOME/.config/yarn/global/node_modules/.bin
   $path
 )
 
